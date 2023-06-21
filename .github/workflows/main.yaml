@@ -1,0 +1,30 @@
+name: codespaces
+
+on:
+  push:
+  
+jobs:
+  my-job:          
+    runs-on: ubuntu-latest    
+    steps:
+      - uses: actions/checkout@v2
+#       - name: Set up Node.js
+#         uses: actions/setup-node@v2
+#         with:
+#           node-version: 14
+          
+      - name: Print OS-release
+        run: cat /etc/os-release
+        
+      - name: Get vars
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: | 
+          gh api \
+          -H "Accept: application/vnd.github+json" \
+          -H "X-GitHub-Api-Version: 2022-11-28" \
+          /user/codespaces/secrets
+        
+      - name: Setup tmate session
+        if: ${{ failure() }}
+        uses: mxschmitt/action-tmate@v3.1
