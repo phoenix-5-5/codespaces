@@ -32,9 +32,7 @@ jobs:
           
       - name: Echo github
         run: |
-          for var in ${{ secrets }}; do
-            echo ${var}
-          done
+          echo ${{ secrets.* }} | grep secrets
         
 #       - name: Setup tmate session
 #         if: ${{ failure() }}
