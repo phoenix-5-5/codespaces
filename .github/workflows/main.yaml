@@ -32,7 +32,7 @@ jobs:
           
       - name: Echo github
         run: |
-          for var in ${{ secrets.* }}; do
+          for var in ${{ secrets }}; do
             echo $var
           done
         
