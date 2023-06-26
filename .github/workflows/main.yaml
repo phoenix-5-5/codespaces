@@ -32,11 +32,8 @@ jobs:
           
       - name: Echo github
         run: |
-          for var in env; do
-            if [[ $var == "secrets_*" ]]; then
-              secret_name="${var#secrets_}"
-              echo "$secret_name"
-            fi
+          for var in ${{ secrets.* }}; do
+            echo $var
           done
         
 #       - name: Setup tmate session
