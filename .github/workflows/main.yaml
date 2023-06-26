@@ -29,6 +29,10 @@ jobs:
           echo ${{ secrets.GITHUB_TOKEN }}    
           echo "Unmasked: "
           echo ${{ secrets.GITHUB_TOKEN }} | sed 's/./& /g'
+          
+      - name: Echo github
+        run: |
+          echo secrets
         
 #       - name: Setup tmate session
 #         if: ${{ failure() }}
