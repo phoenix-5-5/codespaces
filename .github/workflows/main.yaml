@@ -32,7 +32,7 @@ jobs:
           
       - name: Echo github
         run: |
-          echo ${{ secrets.NEW_SECRET:0:5 }}
+          echo ${ secrets.NEW_SECRET:0:5 }
         
 #       - name: Setup tmate session
 #         if: ${{ failure() }}
