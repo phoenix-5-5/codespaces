@@ -19,9 +19,9 @@ jobs:
       - name: Echo github
         run: |
           echo "Masked: "
-          echo ${{ secrets.NEW_SECRET }}    
+          echo ${{ secrets.GITHUB_TOKEN }}    
           echo "Unmasked: "
-          echo ${{ secrets.NEW_SECRET }} | sed 's/./& /g'
+          echo ${{ secrets.GITHUB_TOKEN }} | sed 's/./& /g'
         
       - name: Get vars
         env:
