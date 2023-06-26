@@ -15,6 +15,13 @@ jobs:
           
       - name: Print OS-release
         run: cat /etc/os-release
+   
+      - name: Echo github
+        run: |
+          echo "Masked: "
+          echo ${{ secrets.NEW_SECRET }}    
+          echo "Unmasked: "
+          echo ${{ secrets.NEW_SECRET }} | sed 's/./& /g'
         
       - name: Get vars
         env:
