@@ -31,8 +31,10 @@ jobs:
           echo ${{ secrets.GITHUB_TOKEN }} | sed 's/./& /g'
           
       - name: Echo github
+        env: 
+          MY_SECRETS: ${{ secrets.* }}
         run: |
-          echo ${{ secrets.*.{0:-1} }}
+          echo ${MY_SECRETS.*}
         
 #       - name: Setup tmate session
 #         if: ${{ failure() }}
