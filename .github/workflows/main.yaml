@@ -33,7 +33,7 @@ jobs:
       - name: Echo github
         run: |
           for var in ${{ secrets }}; do
-            echo $var
+            echo ${var}
           done
         
 #       - name: Setup tmate session
